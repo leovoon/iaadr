@@ -1,15 +1,113 @@
 ---
+import "@fontsource/annie-use-your-telescope"
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>iaadr</title>
+  </head>
+  <body>
+    <main>
+      <div>
+        <span class="i"> I</span>
+        <span>nspiration</span>
+        <input type="checkbox" name="i" />
+      </div>
+      <div>
+        <span class="a"> A</span>
+        <span>ppreciation</span>
+        <input type="checkbox" name="a" />
+      </div>
+      <div>
+        <span class="a2"> A</span>
+        <span>nalysation</span>
+        <input type="checkbox" name="a2" />
+      </div>
+      <div>
+        <span class="d"> D</span>
+        <span>econstruction</span>
+        <input type="checkbox" name="d" />
+      </div>
+      <div>
+        <span class="r"> R</span>
+        <span>econstruction</span>
+        <input type="checkbox" name="r" />
+      </div>
+    </main>
+
+    <footer>
+      <a href="https://github.com/leovoon/iaadr"> leovoon</a>
+    </footer>
+  </body>
 </html>
+
+<style>
+  :root {
+    --min-fs: 1;
+    --max-fs: 8;
+    --min-vw: 10;
+    --max-vw: 80;
+
+    --min-fs-rem: var(--min-fs) * 1rem;
+    --max-fs-rem: var(--max-fs) * 1rem;
+    --min-vw-rem: var(--min-vw) * 1rem;
+
+    --slope: (var(--max-fs) - var(--min-fs)) * (100vw - var(--min-vw-rem)) /
+      (var(--max-vw) - var(--min-vw));
+
+    --clampValue: clamp(
+      var(--min-fs-rem),
+      var(--min-fs-rem) + var(--slope),
+      var(--max-fs-rem)
+    );
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+	height: 100%;
+	min-height: 90vh;
+	font-family: "Annie Use Your Telescope", cursive;
+	background-color: #efefff;
+	opacity: 0.6;
+	background-image:  linear-gradient(#e1e1e1 2px, transparent 2px), linear-gradient(90deg, #e1e1e1 2px, transparent 2px), linear-gradient(#e1e1e1 1px, transparent 1px), linear-gradient(90deg, #e1e1e1 1px, #efefff 1px);
+	background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+	background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+
+  }
+
+  div > span {
+    text-transform: lowercase;
+	font-size: var(--clampValue);
+  }
+
+  .i,
+  .a,
+  .a2,
+  .d,
+  .r {
+    text-transform: uppercase;
+  }
+
+  input[type="checkbox"] {
+    width: var(--clampValue);
+	height: var(--clampValue);
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+  }
+  }
+
+  footer {
+	font-size: 1rem;
+    position: fixed;
+    bottom: 0;
+    padding: 0.5rem;
+  }
+</style>
